@@ -1,21 +1,20 @@
-import Student from "./Student";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `Count: ${count}`;
+  }, [count]);
+
   return (
     <div>
-      <h1>Student Details</h1>
+      <h1>Counter App</h1>
+      <h2>{count}</h2>
 
-      <Student
-        name="Anto"
-        age={19}
-        department="CSE"
-      />
-
-      <Student
-        name="Anu"
-        age={20}
-        department="IT"
-      />
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
     </div>
   );
 }
